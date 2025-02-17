@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://sfjfq58xflaf"]
+
+[ext_resource type="FontFile" uid="uid://b8ruwwvy5uhdd" path="res://assets/MaldiniBold.ttf" id="1_055ah"]
+[ext_resource type="Script" path="res://gdj/godot/GameOverMenu.gdj" id="1_iau0n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4xwv"]
+bg_color = Color(0.162395, 0.41013, 0.485025, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="InputEventKey" id="InputEventKey_20kyf"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_yxtf6"]
+events = [SubResource("InputEventKey_20kyf")]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_iau0n")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4xwv")
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 511.0
+offset_right = 483.0
+offset_bottom = 552.0
+theme_override_fonts/font = ExtResource("1_055ah")
+theme_override_font_sizes/font_size = 40
+text = "SCORE: 0"
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 17.0
+offset_top = 567.0
+offset_right = 139.0
+offset_bottom = 613.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_055ah")
+theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_yxtf6")
+text = "AGAIN"
+
+[node name="GameOverLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_top = 430.0
+offset_right = 84.0
+offset_bottom = 471.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_055ah")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
