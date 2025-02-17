@@ -119,7 +119,7 @@ mono_crash.*.json
 .idea/
 
 # Gradle
-.gradle
+.gradle/**
 **/build/
 !src/**/build/
 
